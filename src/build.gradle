@@ -1,0 +1,10 @@
+plugins {
+    id 'application'
+}
+
+repositories{
+    maven{
+        url "http://nexus.uxrealm.lab:8081/repository/maven-public"
+        allowInsecureProtocol = true
+    }
+}
