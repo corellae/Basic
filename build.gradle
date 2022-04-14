@@ -8,3 +8,13 @@ repositories{
         allowInsecureProtocol = true
     }
 }
+
+dependencies{
+    implementation "joda-time:joda-time:2.2"
+}
+
+jar{
+    manifest{
+        attributes('Main-Class': 'lab.uxrealm.basic.Main')
+    }
+}
