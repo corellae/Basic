@@ -1,20 +1,39 @@
 plugins {
+    id 'java'
     id 'application'
 }
 
 repositories{
     maven{
-        url "http://nexus.uxrealm.lab:8081/repository/maven-public"
+        url 'http://nexus.uxrealm.lab:8081/repository/maven-public'
         allowInsecureProtocol = true
     }
 }
 
+configurations{
+    extraLibs
+}
+
 dependencies{
-    implementation "joda-time:joda-time:2.2"
+    implementation 'joda-time:joda-time:2.2'
+    extraLibs 'joda-time:joda-time:2.2'
+}
+
+sourceSets{
+    main{
+        java{
+            srcDir 'src'
+        }
+    }
 }
 
 jar{
+    archiveBaseName = 'basic-app'
+    archiveVersion = '0.0.1'
     manifest{
         attributes('Main-Class': 'lab.uxrealm.basic.Main')
+    }
+    from{
+        configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it)}
     }
 }
