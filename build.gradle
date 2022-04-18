@@ -29,7 +29,7 @@ sourceSets{
 
 jar{
     archiveBaseName = 'basic-app'
-    archiveVersion = '0.0.2'
+    archiveVersion = '0.0.3'
     manifest{
         attributes('Main-Class': 'lab.uxrealm.basic.Main')
     }
